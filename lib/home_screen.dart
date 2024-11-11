@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'Screens/MenuLateral.dart';
+import 'screens/menu_lateral.dart';
 
 
 void main() => runApp(const MyApp());

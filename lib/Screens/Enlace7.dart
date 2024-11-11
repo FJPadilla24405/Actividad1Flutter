@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './MenuLateral.dart';
+import 'menu_lateral.dart';
 
 void main() => runApp(const Enlace7());
 

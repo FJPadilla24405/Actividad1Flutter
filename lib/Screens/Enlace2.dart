@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menu_lateral.dart';
 
 
 class Enlace2 extends StatelessWidget {
@@ -11,6 +12,7 @@ class Enlace2 extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Ricardos en columnas"),
       ),
+      drawer: const MenuLateral(),
       body: Center(
         child: Column(
 	        children:[

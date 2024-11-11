@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'Enlace1.dart';
-import 'Enlace2.dart';
-import 'Enlace3.dart';
-import 'Enlace7.dart';
+import 'enlace1.dart';
+import 'enlace2.dart';
+import 'enlace3.dart';
+import 'enlace7.dart';
+import 'enlace8.dart';
 
 
 class MenuLateral extends StatelessWidget {
@@ -58,6 +59,14 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const Enlace7()));
+            },
+          ),
+          ListTile(
+            title: const Text("Imágenes cambiantes"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace8()));
             },
           ),
         ],
