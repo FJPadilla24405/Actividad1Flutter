@@ -1,7 +1,11 @@
+
+
+import 'package:actividad_1/tools/variabletimer.dart';
 import 'package:flutter/material.dart';
+
 import 'menu_lateral.dart';
 import 'dart:math';
-import 'dart:async';
+
 
 void main() {
   runApp(const Enlace8());
@@ -46,14 +50,27 @@ class _RandomImages extends State<Enlace8> {
   }
 
 
-  void timer() {
-    Timer.periodic(const Duration(milliseconds: 1500), (timer) {
+  /*void timer() {
+    Timer timer = Timer.periodic(Duration(milliseconds: 1500-points*5), (timer) {
       getRandomImage();
       getRandomPosition();
       extractPoints();
       setState(() {});
       
     });
+  }*/
+
+  void timer() {
+    VariableTimer(const Duration(milliseconds: 1500), (timer) {
+    getRandomImage();
+    getRandomPosition();
+    extractPoints();
+    setState(() {});
+    
+    timer.period = Duration(milliseconds: 1500-points*2);
+      
+    
+  });
   }
 
   
