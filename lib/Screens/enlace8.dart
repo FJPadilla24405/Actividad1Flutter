@@ -47,21 +47,16 @@ class _RandomImages extends State<Enlace8> {
 
 
   void timer() {
-    Timer.periodic(const Duration(milliseconds: 1), (timer) {
-      timer2();
+    Timer.periodic(const Duration(milliseconds: 1500), (timer) {
+      getRandomImage();
+      getRandomPosition();
+      extractPoints();
       setState(() {});
       
     });
   }
 
-  void timer2() {
-    Timer.periodic(Duration(milliseconds: 1500-points*10), (timer) {
-      getRandomImage();
-      getRandomPosition();
-      extractPoints();
-      
-    });
-  }
+  
   
 
 
@@ -124,7 +119,6 @@ class _RandomImages extends State<Enlace8> {
     Random random = Random();
     int randomNumber = random.nextInt(6);
     randomImage = assetsImages[randomNumber];
-    timer2;
   }
 
   void getRandomPosition() {
