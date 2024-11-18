@@ -35,8 +35,8 @@ class _RandomImages extends State<Enlace8> {
     'assets/images/RicardoNavidad.png',
     'assets/images/RicardoPelo.png'
   ];
-  late double screenWidth = 0;
-  late double screenHeight = 0;
+  late double screenWidth = 500;
+  late double screenHeight = 1000;
   
 
 
@@ -141,7 +141,7 @@ class _RandomImages extends State<Enlace8> {
   void getRandomPosition() {
     Random random = Random();
     randomWidth = random.nextDouble() * (screenWidth - 150);
-    randomHeight = random.nextDouble() * (screenHeight - 250);
+    randomHeight = random.nextDouble() * (screenHeight - 275);
   }
 
   void extractPoints() {

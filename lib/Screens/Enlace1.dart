@@ -15,10 +15,11 @@ class Enlace1 extends StatelessWidget {
       drawer: const MenuLateral(),
       body: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 	        children:[
             Image.asset('assets/images/Ricardo.png', width: 100, height: 100,),
-            Image.asset('assets/images/Ricardo.png', width: 100, height: 100,),
-            Image.asset('assets/images/Ricardo.png', width: 100, height: 100,),
+            Image.asset('assets/images/Ricardo.png', width: 125, height: 125,),
+            Image.asset('assets/images/Ricardo.png', width: 150, height: 150,),
           ]
         ),
 

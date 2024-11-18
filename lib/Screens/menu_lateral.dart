@@ -1,4 +1,7 @@
-import 'enlace9.dart';
+import 'package:actividad_1/screens/enlace4.dart';
+import 'package:actividad_1/screens/enlace5.dart';
+
+
 import 'package:flutter/material.dart';
 import 'enlace1.dart';
 import 'enlace2.dart';
@@ -52,6 +55,22 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const Enlace3()));
+            },
+          ),
+          ListTile(
+            title: const Text("Desafío"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace4()));
+            },
+          ),
+          ListTile(
+            title: const Text("Anidados"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace5()));
             },
           ),
           ListTile(
