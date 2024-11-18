@@ -27,36 +27,36 @@ class MyAppState extends State<Enlace9> {
       //****************Define el tema claro:*****************
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.black,
-        scaffoldBackgroundColor: Colors.white,
+        primaryColor: const Color.fromARGB(255, 255, 238, 0),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 32, 32, 32),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: Color.fromARGB(255, 212, 191, 0),
+          foregroundColor: Colors.black,
+          iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.white,
+            backgroundColor: const Color.fromARGB(255, 53, 53, 53),
+            foregroundColor: const Color.fromARGB(255, 212, 191, 0),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            foregroundColor: Colors.black,
+            foregroundColor: const Color.fromARGB(255, 212, 191, 0),
           ),
         ),
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: const Color.fromARGB(255, 212, 191, 0),
         ),
         textTheme: const TextTheme(
           titleLarge: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
-          bodyMedium: TextStyle(fontSize: 18, color: Colors.black87),
+              fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 212, 191, 0)),
+          bodyMedium: TextStyle(fontSize: 18, color: const Color.fromARGB(255, 212, 191, 0)),
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 53, 53, 53),
+          foregroundColor: Color.fromARGB(255, 212, 191, 0),
         ),
       ),
 
