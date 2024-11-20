@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'menu_lateral.dart';
 
 
-class Enlace2 extends StatelessWidget {
-  const Enlace2({super.key});
+class Enlace3 extends StatelessWidget {
+  const Enlace3({super.key});
 
 
   @override

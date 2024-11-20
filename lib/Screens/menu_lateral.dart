@@ -1,11 +1,12 @@
-import 'package:actividad_1/screens/enlace4.dart';
-import 'package:actividad_1/screens/enlace5.dart';
+import 'package:actividad_1/home_screen.dart';
+import 'package:actividad_1/screens/entrada5.dart';
+import 'package:actividad_1/screens/entrada6.dart';
 
 
 import 'package:flutter/material.dart';
-import 'enlace1.dart';
-import 'enlace2.dart';
-import 'enlace3.dart';
+import 'entrada2.dart';
+import 'entrada3.dart';
+import 'entrada4.dart';
 import 'enlace7.dart';
 import 'enlace8.dart';
 
@@ -20,8 +21,8 @@ class MenuLateral extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           const UserAccountsDrawerHeader(
-            accountName: Text("Francisco Javier Padilla Lopez"),
-            accountEmail: Text("https://github.com/FJPadilla24405/Actividad1Flutter"),
+            accountName: Text("Francisco Javier Padilla Lopez", style: TextStyle( color: Colors.white),),
+            accountEmail: Text("https://github.com/FJPadilla24405/Actividad1Flutter", style: TextStyle( color: Colors.white),),
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage("https://i.ytimg.com/vi/9TlmBmMonIc/maxresdefault.jpg"),
@@ -31,18 +32,18 @@ class MenuLateral extends StatelessWidget {
             color: const Color.fromARGB(255, 133, 102, 0),
             child: ListTile(
               title: const Text(
-                "Row",
-                style: TextStyle(color: Colors.white),
+                "Home",
+                style: TextStyle(color: Colors.black),
               ),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => const Enlace1()));
+                    builder: (BuildContext context) => const HomeApp()));
               },
             ),
           ),
           ListTile(
-            title: const Text("Columns"),
+            title: const Text("Rows"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -50,7 +51,7 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Icons"),
+            title: const Text("Columns"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -58,7 +59,7 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Desafío"),
+            title: const Text("Icons"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -66,11 +67,19 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Anidados"),
+            title: const Text("Desafío"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const Enlace5()));
+            },
+          ),
+          ListTile(
+            title: const Text("Anidados"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace6()));
             },
           ),
           ListTile(
