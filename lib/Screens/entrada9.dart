@@ -73,10 +73,6 @@ class _RandomImages extends State<Enlace8> {
   });
   }
 
-  
-  
-
-
   @override
   Widget build(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;

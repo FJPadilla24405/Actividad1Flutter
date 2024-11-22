@@ -9,6 +9,7 @@ class Enlace7 extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
         title: 'Actividad 1',
         home: Scaffold(
@@ -79,7 +80,7 @@ class Enlace7 extends StatelessWidget {
                           shape: const BeveledRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(4))),
-                          minimumSize: const Size(410, 35)),
+                          minimumSize: Size((screenWidth - 40), 35)),
                       child: const Text(
                         "Editar perfil",
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -87,16 +88,19 @@ class Enlace7 extends StatelessWidget {
                     )
                   ],
                 ),
-                const Row(
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
                         CircleAvatar(
                           radius: 35,
                           backgroundImage:
-                              AssetImage('assets/images/Ricardo.png'),
+                              AssetImage('assets/images/Ricarda.png'),
                         ),
                         Text("Nuevo")
                       ],
@@ -104,10 +108,11 @@ class Enlace7 extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
                         CircleAvatar(
                           radius: 35,
                           backgroundImage:
-                              AssetImage('assets/images/Ricardo.png'),
+                              AssetImage('assets/images/RicardoElegante.png'),
                         ),
                         Text("Pilotando")
                       ],
@@ -115,6 +120,7 @@ class Enlace7 extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
                         CircleAvatar(
                           radius: 35,
                           backgroundImage:
@@ -126,10 +132,11 @@ class Enlace7 extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
                         CircleAvatar(
                           radius: 35,
                           backgroundImage:
-                              AssetImage('assets/images/Ricardo.png'),
+                              AssetImage('assets/images/RicardoNavidad.png'),
                         ),
                         Text("Arquitectura")
                       ],
@@ -137,16 +144,41 @@ class Enlace7 extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
                         CircleAvatar(
                           radius: 35,
                           backgroundImage:
                               AssetImage('assets/images/Ricardo.png'),
                         ),
+                        Text("Yo")
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
+                        CircleAvatar(
+                          radius: 35,
+                          backgroundImage:
+                              AssetImage('assets/images/RicardoFiestas.png'),
+                        ),
+                        Text("Fiestas")
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(padding: EdgeInsets.fromLTRB(45, 0, 45, 0)),
+                        CircleAvatar(
+                          radius: 35,
+                          backgroundImage:
+                              AssetImage('assets/images/RicardoPelo.png'),
+                        ),
                         Text("Retratos")
                       ],
                     ),
                   ],
-                ),
+                ),),
                 Row(
                   children: [
                     Column(
@@ -165,7 +197,7 @@ class Enlace7 extends StatelessWidget {
                                     shape: const BeveledRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(1))),
-                                    minimumSize: const Size(220, 50)),
+                                    minimumSize: Size((screenWidth/2), 50)),
                               ),
                               IconButton(
                                 onPressed: () {},
@@ -178,27 +210,27 @@ class Enlace7 extends StatelessWidget {
                                     shape: const BeveledRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(1))),
-                                    minimumSize: const Size(220, 50)),
+                                    minimumSize: Size((screenWidth/2), 50)),
                               ),
                             ]),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Container(
-                                width: 410,
+                                width: screenWidth,
                                 height: 350,
                                 child: GridView.count(
                                   crossAxisCount: 3,
                                   children: [
                                     Image.asset('assets/images/Ricardo.png'),
+                                    Image.asset('assets/images/Ricarda.png'),
+                                    Image.asset('assets/images/RicardoElegante.png'),
+                                    Image.asset('assets/images/RicardoFiestas.png'),
+                                    Image.asset('assets/images/RicardoNavidad.png'),
+                                    Image.asset('assets/images/RicardoPelo.png'),
                                     Image.asset('assets/images/Ricardo.png'),
                                     Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
-                                    Image.asset('assets/images/Ricardo.png'),
+                                    Image.asset('assets/images/cesped.jpg'),
                                   ],
                                 ))
                           ],

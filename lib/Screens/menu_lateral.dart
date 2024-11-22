@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'entrada2.dart';
 import 'entrada3.dart';
 import 'entrada4.dart';
-import 'enlace7.dart';
+import 'entrada8.dart';
 import 'enlace8.dart';
 
 
