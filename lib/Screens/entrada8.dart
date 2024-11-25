@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'menu_lateral.dart';
 
-void main() => runApp(const Enlace7());
+void main() => runApp(const Enlace8());
 
-class Enlace7 extends StatelessWidget {
-  const Enlace7({super.key});
+class Enlace8 extends StatelessWidget {
+  const Enlace8({super.key});
 
   // This widget is the root of your application.
   @override

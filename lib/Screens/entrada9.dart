@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'menu_lateral.dart';
 import 'dart:math';
 
+import 'temas.dart';
+
 
 void main() {
-  runApp(const Enlace8());
+  runApp(const Enlace9());
 }
-class Enlace8 extends StatefulWidget {
-  const Enlace8({super.key});
+class Enlace9 extends StatefulWidget {
+  const Enlace9({super.key});
 
 
   @override
@@ -20,7 +22,7 @@ class Enlace8 extends StatefulWidget {
 }
 
 
-class _RandomImages extends State<Enlace8> {
+class _RandomImages extends State<Enlace9> {
   int points = 0;
   bool click = false;
   late String randomImage;
@@ -48,7 +50,6 @@ class _RandomImages extends State<Enlace8> {
     extractPoints();
     timer();
   }
-
 
   /*void timer() {
     Timer timer = Timer.periodic(Duration(milliseconds: 1500-points*5), (timer) {
@@ -80,12 +81,12 @@ class _RandomImages extends State<Enlace8> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: const Temas().Tema1(),
       home: Scaffold(
          appBar: AppBar(
             title: const Text("Juego de imágenes"),
           ),
           drawer: const MenuLateral(),
-        backgroundColor: Colors.white,
         body: Stack(
           children: [
             

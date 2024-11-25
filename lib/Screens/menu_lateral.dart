@@ -1,6 +1,7 @@
 import 'package:actividad_1/home_screen.dart';
 import 'package:actividad_1/screens/entrada5.dart';
 import 'package:actividad_1/screens/entrada6.dart';
+import 'package:actividad_1/screens/entrada7.dart';
 
 
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import 'entrada2.dart';
 import 'entrada3.dart';
 import 'entrada4.dart';
 import 'entrada8.dart';
-import 'enlace8.dart';
+import 'entrada9.dart';
 
 
 class MenuLateral extends StatelessWidget {
@@ -83,7 +84,7 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Instagram"),
+            title: const Text("Contador"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -91,11 +92,19 @@ class MenuLateral extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Imágenes cambiantes"),
+            title: const Text("Instagram"),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const Enlace8()));
+            },
+          ),
+          ListTile(
+            title: const Text("Imágenes cambiantes"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace9()));
             },
           ),
           
