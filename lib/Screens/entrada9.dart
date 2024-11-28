@@ -1,5 +1,3 @@
-
-
 import 'package:actividad_1/tools/variabletimer.dart';
 import 'package:flutter/material.dart';
 

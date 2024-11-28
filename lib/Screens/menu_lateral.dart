@@ -1,4 +1,5 @@
 import 'package:actividad_1/home_screen.dart';
+import 'package:actividad_1/screens/entrada10.dart';
 import 'package:actividad_1/screens/entrada5.dart';
 import 'package:actividad_1/screens/entrada6.dart';
 import 'package:actividad_1/screens/entrada7.dart';
@@ -105,6 +106,14 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const Enlace9()));
+            },
+          ),
+          ListTile(
+            title: const Text("Juego de cartas"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace10()));
             },
           ),
           

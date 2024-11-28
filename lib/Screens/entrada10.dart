@@ -1,4 +1,3 @@
-import 'package:actividad_1/tools/variabletimer.dart';
 import 'package:flutter/material.dart';
 
 import 'menu_lateral.dart';
@@ -19,49 +18,53 @@ class Enlace10 extends StatefulWidget {
   _SieteYMedia createState() => _SieteYMedia();
 }
 
-
 class _SieteYMedia extends State<Enlace10> {
-  int points = 0;
-  bool click = false;
-  late String nombreCarta;
-  late double randomWidth;
-  late double randomHeight;
-  late Image image;
+  double playerPoints = 0;
+  double dealerPoints = 0;
+  int contadorVictoriasPlayer = 0;
+  int contadorVictoriasDealer = 0;
+  bool disable = false;
+  String nombreCarta = "";
+  String victoriaTexto = "";
+  late ElevatedButton sacar;
+  late ElevatedButton plantar;
 
   var palo = [
     'Oros', 'Copas', 'Espadas', 'Bastos'
   ];
 
   var cartas = {
-    0, {'Uno de ':1},
-    1, {'Dos de ':2},
-    2, {'Tres de ':3},
-    3, {'Cuatro de ':4},
-    4, {'Cinco de ':5},
-    5, {'Seis de ':6},
-    6, {'Siete de ':7},
-    7, {'Sota de ':0.5},
-    8, {'Caballo de ':0.5},
-    9, {'Rey de ':0.5}
+    {'Uno de ':1},
+    {'Dos de ':2},
+    {'Tres de ':3},
+    {'Cuatro de ':4},
+    {'Cinco de ':5},
+    {'Seis de ':6},
+    {'Siete de ':7},
+    {'Sota de ':0.5},
+    {'Caballo de ':0.5},
+    {'Rey de ':0.5}
   };
-  
-  late double screenWidth = 500;
-  late double screenHeight = 1000;
-  
-
 
   @override
   void initState() {
     super.initState();
-    getRandomImage();
-    getRandomPosition();
-    extractPoints();
+    disable = false;
+    getRandomCarta();
+  }
+
+  void reiniciar() {
+    playerPoints = 0;
+    dealerPoints = 0;
+    disable = false;
+    nombreCarta = "";
+    victoriaTexto = "";
+    getRandomCarta();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -71,78 +74,94 @@ class _SieteYMedia extends State<Enlace10> {
             title: const Text("Juego de cartas"),
           ),
           drawer: const MenuLateral(),
-        body: Stack(
+        body: Center( 
+          child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             
-            Positioned(
-            left: randomWidth,
-            bottom: randomHeight,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Text("Victorias: $contadorVictoriasPlayer | $contadorVictoriasDealer", style: const TextStyle(fontSize: 25)),
+            const Padding(padding: EdgeInsets.all(10)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  'Puntos: $points',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                Center(
-              child: GestureDetector(
-                
-                onTap: () {
-                  onGiftTap(image);
-                },
-                child: Column(
-                  children: [
-                    
-                    //image = Image.asset(randomImage, width: 150, height: 150,),
-                    
-                  ],
-                ),
-              ),
-            ),]
-                ),
+                Text("Tú: $playerPoints", style: const TextStyle(fontSize: 25)),
+                Text("Máquina: ${disable ? dealerPoints : "?"}", style: const TextStyle(fontSize: 25)),
+              ],
+            ),
+            const Padding(padding: EdgeInsets.all(10)),
+            Text(nombreCarta, style: const TextStyle(fontSize: 20)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                sacar = ElevatedButton(onPressed: disable ? null : getRandomCarta, child: const Text("Sacar carta", style: TextStyle(fontSize: 20)),),
+                plantar = ElevatedButton(onPressed: disable ? reiniciar : dealerPlays, child: Text(disable ? "Reiniciar" : "Plantarse", style: const TextStyle(fontSize: 20)))
+            ],),
+            const Padding(padding: EdgeInsets.all(10)),
+            Text(victoriaTexto, style: const TextStyle(fontSize: 30)),
             
-             
-      )
-    
-  ]
-)
+          ],))
         
       ),
     );
   }
 
 
-  void getRandomImage() {
+  void getRandomCarta() {
     
     Random random = Random();
-    int randomNumber = random.nextInt(6);
-    //randomImage = assetsImages[randomNumber];
+    int randomNumber = random.nextInt(10);
+    nombreCarta += cartas.elementAt(randomNumber).keys.first;
+    nombreCarta += "${palo[random.nextInt(4)]}\r\n";
+    playerPoints += cartas.elementAt(randomNumber).values.first;
+    setState(() {});
+
+    comprobarVictoria(false);
   }
 
-  void getRandomPosition() {
+  void dealerPlays() {
+    bool plantar = false;
     Random random = Random();
-    randomWidth = random.nextDouble() * (screenWidth - 150);
-    randomHeight = random.nextDouble() * (screenHeight - 275);
-  }
 
-  void extractPoints() {
+    while (!plantar) {
+      int randomNumber = random.nextInt(10);
 
-    if (points > 0 && !click) {
-      points -= (points * 0.25).round();
-      
+      if (!(dealerPoints + cartas.elementAt(randomNumber).values.first > 7.5)) {
+        dealerPoints += cartas.elementAt(randomNumber).values.first;
+      } else {
+        plantar = true;
+      }
+
+      setState(() {});
     }
 
-    click = false;
+    comprobarVictoria(true);
 
   }
 
-  void onGiftTap(Image image) {
-    
-      if (!click) {
-        points+= 5;
-        click = true;
-      }
+  void comprobarVictoria(bool mostrar) {
+
+    if (playerPoints > 7.5) {
+      victoriaTexto = "Te has pasado";
+      disable = true;
+      contadorVictoriasDealer++;
+    } else if (playerPoints > dealerPoints && mostrar) {
+      victoriaTexto = "Has ganado";
+      disable = true;
+      contadorVictoriasPlayer++;
+    } else  if (mostrar) {
+      victoriaTexto = "La máquina te ha ganado";
+      disable = true;
+      contadorVictoriasDealer++;
+    }
+
+    if (contadorVictoriasDealer >= 5) {
       
+      showDialog(context: context, builder: (BuildContext context) {
+      return const Dialog(child: Text("AAAAAAAAAAAAAAA", style: TextStyle(color: Colors.black),),);
+      },
+    );}
+
     setState(() {});
+
   }
 }
