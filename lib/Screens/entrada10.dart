@@ -24,6 +24,7 @@ class _SieteYMedia extends State<Enlace10> {
   int contadorVictoriasPlayer = 0;
   int contadorVictoriasDealer = 0;
   bool disable = false;
+  bool textoVictoria = false;
   String nombreCarta = "";
   String victoriaTexto = "";
   late ElevatedButton sacar;
@@ -143,25 +144,50 @@ class _SieteYMedia extends State<Enlace10> {
     if (playerPoints > 7.5) {
       victoriaTexto = "Te has pasado";
       disable = true;
+      textoVictoria = false;
       contadorVictoriasDealer++;
     } else if (playerPoints > dealerPoints && mostrar) {
       victoriaTexto = "Has ganado";
       disable = true;
+      textoVictoria = true;
       contadorVictoriasPlayer++;
     } else  if (mostrar) {
       victoriaTexto = "La máquina te ha ganado";
       disable = true;
+      textoVictoria = false;
       contadorVictoriasDealer++;
     }
+  
+    setState(() {});
+    if (contadorVictoriasDealer >= 5 || contadorVictoriasPlayer >= 5) {
+      victoriaDefinitiva();
+    }
 
-    if (contadorVictoriasDealer >= 5) {
+  }
+
+  void victoriaDefinitiva() {
       
-      showDialog(context: context, builder: (BuildContext context) {
-      return const Dialog(child: Text("AAAAAAAAAAAAAAA", style: TextStyle(color: Colors.black),),);
-      },
-    );}
+    showDialog(context: context, builder: (BuildContext context) {
+      return Dialog(child: Container(
+        constraints: BoxConstraints.expand(
+          height: Theme.of(context).textTheme.headlineMedium!.fontSize! * 1.1 + 200.0,
+        ),
+        padding: const EdgeInsets.all(5.0),
+        alignment: Alignment.center,
+          child: Text(textoVictoria ? "Le has pegado un palizón histórico a la máquina" : "La máquina te ha pegado un palizón histórico",
+          style: Theme.of(context)
+          .textTheme
+          .headlineMedium!
+          .copyWith(color: Colors.black,), textAlign: TextAlign.center,),
+      ));
+    },);
 
     setState(() {});
+
+    contadorVictoriasDealer = 0;
+    contadorVictoriasPlayer = 0;
+
+    reiniciar();
 
   }
 }
