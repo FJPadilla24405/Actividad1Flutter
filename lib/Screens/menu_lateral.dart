@@ -6,6 +6,7 @@ import 'package:actividad_1/screens/entrada7.dart';
 
 
 import 'package:flutter/material.dart';
+import 'entrada11.dart';
 import 'entrada2.dart';
 import 'entrada3.dart';
 import 'entrada4.dart';
@@ -116,7 +117,14 @@ class MenuLateral extends StatelessWidget {
                   builder: (BuildContext context) => const Enlace10()));
             },
           ),
-          
+          ListTile(
+            title: const Text("Formularios"),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const Enlace11()));
+            },
+          ),
         ],
       ),
     );
