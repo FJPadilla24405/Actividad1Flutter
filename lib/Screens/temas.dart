@@ -45,6 +45,22 @@ class Temas extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 53, 53, 53),
           foregroundColor: Color.fromARGB(255, 212, 191, 0),
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 212, 191, 0)),
+          ),
+          labelStyle: TextStyle(
+            color: Colors.grey,
+          ),
+          iconColor: Color.fromARGB(255, 212, 191, 0)
+        ),
+        
       );
   }
   
